@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package protoMsg;
+
+message Msg {
+     string time = 1;
+     uint32 type = 3;
+     string content = 2;
+}
