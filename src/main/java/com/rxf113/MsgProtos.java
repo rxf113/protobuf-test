@@ -14,6 +14,1115 @@ public final class MsgProtos {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  /**
+   * Protobuf enum {@code PackageType}
+   */
+  public enum PackageType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>MSG = 0;</code>
+     */
+    MSG(0),
+    /**
+     * <code>HEARTMESSAGE = 1;</code>
+     */
+    HEARTMESSAGE(1),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>MSG = 0;</code>
+     */
+    public static final int MSG_VALUE = 0;
+    /**
+     * <code>HEARTMESSAGE = 1;</code>
+     */
+    public static final int HEARTMESSAGE_VALUE = 1;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static PackageType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static PackageType forNumber(int value) {
+      switch (value) {
+        case 0: return MSG;
+        case 1: return HEARTMESSAGE;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<PackageType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        PackageType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<PackageType>() {
+            public PackageType findValueByNumber(int number) {
+              return PackageType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.rxf113.MsgProtos.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final PackageType[] VALUES = values();
+
+    public static PackageType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private PackageType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:PackageType)
+  }
+
+  public interface DataPackageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:DataPackage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.PackageType packageType = 1;</code>
+     */
+    int getPackageTypeValue();
+    /**
+     * <code>.PackageType packageType = 1;</code>
+     */
+    com.rxf113.MsgProtos.PackageType getPackageType();
+
+    /**
+     * <code>.Msg msg = 2;</code>
+     */
+    boolean hasMsg();
+    /**
+     * <code>.Msg msg = 2;</code>
+     */
+    com.rxf113.MsgProtos.Msg getMsg();
+    /**
+     * <code>.Msg msg = 2;</code>
+     */
+    com.rxf113.MsgProtos.MsgOrBuilder getMsgOrBuilder();
+
+    /**
+     * <code>.HeartMessage heartMsg = 3;</code>
+     */
+    boolean hasHeartMsg();
+    /**
+     * <code>.HeartMessage heartMsg = 3;</code>
+     */
+    com.rxf113.MsgProtos.HeartMessage getHeartMsg();
+    /**
+     * <code>.HeartMessage heartMsg = 3;</code>
+     */
+    com.rxf113.MsgProtos.HeartMessageOrBuilder getHeartMsgOrBuilder();
+
+    public com.rxf113.MsgProtos.DataPackage.PackageCase getPackageCase();
+  }
+  /**
+   * Protobuf type {@code DataPackage}
+   */
+  public  static final class DataPackage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:DataPackage)
+      DataPackageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DataPackage.newBuilder() to construct.
+    private DataPackage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DataPackage() {
+      packageType_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DataPackage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              packageType_ = rawValue;
+              break;
+            }
+            case 18: {
+              com.rxf113.MsgProtos.Msg.Builder subBuilder = null;
+              if (packageCase_ == 2) {
+                subBuilder = ((com.rxf113.MsgProtos.Msg) package_).toBuilder();
+              }
+              package_ =
+                  input.readMessage(com.rxf113.MsgProtos.Msg.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.rxf113.MsgProtos.Msg) package_);
+                package_ = subBuilder.buildPartial();
+              }
+              packageCase_ = 2;
+              break;
+            }
+            case 26: {
+              com.rxf113.MsgProtos.HeartMessage.Builder subBuilder = null;
+              if (packageCase_ == 3) {
+                subBuilder = ((com.rxf113.MsgProtos.HeartMessage) package_).toBuilder();
+              }
+              package_ =
+                  input.readMessage(com.rxf113.MsgProtos.HeartMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.rxf113.MsgProtos.HeartMessage) package_);
+                package_ = subBuilder.buildPartial();
+              }
+              packageCase_ = 3;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.rxf113.MsgProtos.internal_static_DataPackage_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.rxf113.MsgProtos.internal_static_DataPackage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.rxf113.MsgProtos.DataPackage.class, com.rxf113.MsgProtos.DataPackage.Builder.class);
+    }
+
+    private int packageCase_ = 0;
+    private java.lang.Object package_;
+    public enum PackageCase
+        implements com.google.protobuf.Internal.EnumLite {
+      MSG(2),
+      HEARTMSG(3),
+      PACKAGE_NOT_SET(0);
+      private final int value;
+      private PackageCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static PackageCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static PackageCase forNumber(int value) {
+        switch (value) {
+          case 2: return MSG;
+          case 3: return HEARTMSG;
+          case 0: return PACKAGE_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public PackageCase
+    getPackageCase() {
+      return PackageCase.forNumber(
+          packageCase_);
+    }
+
+    public static final int PACKAGETYPE_FIELD_NUMBER = 1;
+    private int packageType_;
+    /**
+     * <code>.PackageType packageType = 1;</code>
+     */
+    public int getPackageTypeValue() {
+      return packageType_;
+    }
+    /**
+     * <code>.PackageType packageType = 1;</code>
+     */
+    public com.rxf113.MsgProtos.PackageType getPackageType() {
+      @SuppressWarnings("deprecation")
+      com.rxf113.MsgProtos.PackageType result = com.rxf113.MsgProtos.PackageType.valueOf(packageType_);
+      return result == null ? com.rxf113.MsgProtos.PackageType.UNRECOGNIZED : result;
+    }
+
+    public static final int MSG_FIELD_NUMBER = 2;
+    /**
+     * <code>.Msg msg = 2;</code>
+     */
+    public boolean hasMsg() {
+      return packageCase_ == 2;
+    }
+    /**
+     * <code>.Msg msg = 2;</code>
+     */
+    public com.rxf113.MsgProtos.Msg getMsg() {
+      if (packageCase_ == 2) {
+         return (com.rxf113.MsgProtos.Msg) package_;
+      }
+      return com.rxf113.MsgProtos.Msg.getDefaultInstance();
+    }
+    /**
+     * <code>.Msg msg = 2;</code>
+     */
+    public com.rxf113.MsgProtos.MsgOrBuilder getMsgOrBuilder() {
+      if (packageCase_ == 2) {
+         return (com.rxf113.MsgProtos.Msg) package_;
+      }
+      return com.rxf113.MsgProtos.Msg.getDefaultInstance();
+    }
+
+    public static final int HEARTMSG_FIELD_NUMBER = 3;
+    /**
+     * <code>.HeartMessage heartMsg = 3;</code>
+     */
+    public boolean hasHeartMsg() {
+      return packageCase_ == 3;
+    }
+    /**
+     * <code>.HeartMessage heartMsg = 3;</code>
+     */
+    public com.rxf113.MsgProtos.HeartMessage getHeartMsg() {
+      if (packageCase_ == 3) {
+         return (com.rxf113.MsgProtos.HeartMessage) package_;
+      }
+      return com.rxf113.MsgProtos.HeartMessage.getDefaultInstance();
+    }
+    /**
+     * <code>.HeartMessage heartMsg = 3;</code>
+     */
+    public com.rxf113.MsgProtos.HeartMessageOrBuilder getHeartMsgOrBuilder() {
+      if (packageCase_ == 3) {
+         return (com.rxf113.MsgProtos.HeartMessage) package_;
+      }
+      return com.rxf113.MsgProtos.HeartMessage.getDefaultInstance();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (packageType_ != com.rxf113.MsgProtos.PackageType.MSG.getNumber()) {
+        output.writeEnum(1, packageType_);
+      }
+      if (packageCase_ == 2) {
+        output.writeMessage(2, (com.rxf113.MsgProtos.Msg) package_);
+      }
+      if (packageCase_ == 3) {
+        output.writeMessage(3, (com.rxf113.MsgProtos.HeartMessage) package_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (packageType_ != com.rxf113.MsgProtos.PackageType.MSG.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, packageType_);
+      }
+      if (packageCase_ == 2) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, (com.rxf113.MsgProtos.Msg) package_);
+      }
+      if (packageCase_ == 3) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, (com.rxf113.MsgProtos.HeartMessage) package_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.rxf113.MsgProtos.DataPackage)) {
+        return super.equals(obj);
+      }
+      com.rxf113.MsgProtos.DataPackage other = (com.rxf113.MsgProtos.DataPackage) obj;
+
+      boolean result = true;
+      result = result && packageType_ == other.packageType_;
+      result = result && getPackageCase().equals(
+          other.getPackageCase());
+      if (!result) return false;
+      switch (packageCase_) {
+        case 2:
+          result = result && getMsg()
+              .equals(other.getMsg());
+          break;
+        case 3:
+          result = result && getHeartMsg()
+              .equals(other.getHeartMsg());
+          break;
+        case 0:
+        default:
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + PACKAGETYPE_FIELD_NUMBER;
+      hash = (53 * hash) + packageType_;
+      switch (packageCase_) {
+        case 2:
+          hash = (37 * hash) + MSG_FIELD_NUMBER;
+          hash = (53 * hash) + getMsg().hashCode();
+          break;
+        case 3:
+          hash = (37 * hash) + HEARTMSG_FIELD_NUMBER;
+          hash = (53 * hash) + getHeartMsg().hashCode();
+          break;
+        case 0:
+        default:
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.rxf113.MsgProtos.DataPackage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.rxf113.MsgProtos.DataPackage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.rxf113.MsgProtos.DataPackage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.rxf113.MsgProtos.DataPackage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.rxf113.MsgProtos.DataPackage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.rxf113.MsgProtos.DataPackage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.rxf113.MsgProtos.DataPackage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.rxf113.MsgProtos.DataPackage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.rxf113.MsgProtos.DataPackage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.rxf113.MsgProtos.DataPackage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.rxf113.MsgProtos.DataPackage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.rxf113.MsgProtos.DataPackage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.rxf113.MsgProtos.DataPackage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code DataPackage}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:DataPackage)
+        com.rxf113.MsgProtos.DataPackageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.rxf113.MsgProtos.internal_static_DataPackage_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.rxf113.MsgProtos.internal_static_DataPackage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.rxf113.MsgProtos.DataPackage.class, com.rxf113.MsgProtos.DataPackage.Builder.class);
+      }
+
+      // Construct using com.rxf113.MsgProtos.DataPackage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        packageType_ = 0;
+
+        packageCase_ = 0;
+        package_ = null;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.rxf113.MsgProtos.internal_static_DataPackage_descriptor;
+      }
+
+      @java.lang.Override
+      public com.rxf113.MsgProtos.DataPackage getDefaultInstanceForType() {
+        return com.rxf113.MsgProtos.DataPackage.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.rxf113.MsgProtos.DataPackage build() {
+        com.rxf113.MsgProtos.DataPackage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.rxf113.MsgProtos.DataPackage buildPartial() {
+        com.rxf113.MsgProtos.DataPackage result = new com.rxf113.MsgProtos.DataPackage(this);
+        result.packageType_ = packageType_;
+        if (packageCase_ == 2) {
+          if (msgBuilder_ == null) {
+            result.package_ = package_;
+          } else {
+            result.package_ = msgBuilder_.build();
+          }
+        }
+        if (packageCase_ == 3) {
+          if (heartMsgBuilder_ == null) {
+            result.package_ = package_;
+          } else {
+            result.package_ = heartMsgBuilder_.build();
+          }
+        }
+        result.packageCase_ = packageCase_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.rxf113.MsgProtos.DataPackage) {
+          return mergeFrom((com.rxf113.MsgProtos.DataPackage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.rxf113.MsgProtos.DataPackage other) {
+        if (other == com.rxf113.MsgProtos.DataPackage.getDefaultInstance()) return this;
+        if (other.packageType_ != 0) {
+          setPackageTypeValue(other.getPackageTypeValue());
+        }
+        switch (other.getPackageCase()) {
+          case MSG: {
+            mergeMsg(other.getMsg());
+            break;
+          }
+          case HEARTMSG: {
+            mergeHeartMsg(other.getHeartMsg());
+            break;
+          }
+          case PACKAGE_NOT_SET: {
+            break;
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.rxf113.MsgProtos.DataPackage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.rxf113.MsgProtos.DataPackage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int packageCase_ = 0;
+      private java.lang.Object package_;
+      public PackageCase
+          getPackageCase() {
+        return PackageCase.forNumber(
+            packageCase_);
+      }
+
+      public Builder clearPackage() {
+        packageCase_ = 0;
+        package_ = null;
+        onChanged();
+        return this;
+      }
+
+
+      private int packageType_ = 0;
+      /**
+       * <code>.PackageType packageType = 1;</code>
+       */
+      public int getPackageTypeValue() {
+        return packageType_;
+      }
+      /**
+       * <code>.PackageType packageType = 1;</code>
+       */
+      public Builder setPackageTypeValue(int value) {
+        packageType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.PackageType packageType = 1;</code>
+       */
+      public com.rxf113.MsgProtos.PackageType getPackageType() {
+        @SuppressWarnings("deprecation")
+        com.rxf113.MsgProtos.PackageType result = com.rxf113.MsgProtos.PackageType.valueOf(packageType_);
+        return result == null ? com.rxf113.MsgProtos.PackageType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.PackageType packageType = 1;</code>
+       */
+      public Builder setPackageType(com.rxf113.MsgProtos.PackageType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        packageType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.PackageType packageType = 1;</code>
+       */
+      public Builder clearPackageType() {
+        
+        packageType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.rxf113.MsgProtos.Msg, com.rxf113.MsgProtos.Msg.Builder, com.rxf113.MsgProtos.MsgOrBuilder> msgBuilder_;
+      /**
+       * <code>.Msg msg = 2;</code>
+       */
+      public boolean hasMsg() {
+        return packageCase_ == 2;
+      }
+      /**
+       * <code>.Msg msg = 2;</code>
+       */
+      public com.rxf113.MsgProtos.Msg getMsg() {
+        if (msgBuilder_ == null) {
+          if (packageCase_ == 2) {
+            return (com.rxf113.MsgProtos.Msg) package_;
+          }
+          return com.rxf113.MsgProtos.Msg.getDefaultInstance();
+        } else {
+          if (packageCase_ == 2) {
+            return msgBuilder_.getMessage();
+          }
+          return com.rxf113.MsgProtos.Msg.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.Msg msg = 2;</code>
+       */
+      public Builder setMsg(com.rxf113.MsgProtos.Msg value) {
+        if (msgBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          package_ = value;
+          onChanged();
+        } else {
+          msgBuilder_.setMessage(value);
+        }
+        packageCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.Msg msg = 2;</code>
+       */
+      public Builder setMsg(
+          com.rxf113.MsgProtos.Msg.Builder builderForValue) {
+        if (msgBuilder_ == null) {
+          package_ = builderForValue.build();
+          onChanged();
+        } else {
+          msgBuilder_.setMessage(builderForValue.build());
+        }
+        packageCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.Msg msg = 2;</code>
+       */
+      public Builder mergeMsg(com.rxf113.MsgProtos.Msg value) {
+        if (msgBuilder_ == null) {
+          if (packageCase_ == 2 &&
+              package_ != com.rxf113.MsgProtos.Msg.getDefaultInstance()) {
+            package_ = com.rxf113.MsgProtos.Msg.newBuilder((com.rxf113.MsgProtos.Msg) package_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            package_ = value;
+          }
+          onChanged();
+        } else {
+          if (packageCase_ == 2) {
+            msgBuilder_.mergeFrom(value);
+          }
+          msgBuilder_.setMessage(value);
+        }
+        packageCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.Msg msg = 2;</code>
+       */
+      public Builder clearMsg() {
+        if (msgBuilder_ == null) {
+          if (packageCase_ == 2) {
+            packageCase_ = 0;
+            package_ = null;
+            onChanged();
+          }
+        } else {
+          if (packageCase_ == 2) {
+            packageCase_ = 0;
+            package_ = null;
+          }
+          msgBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.Msg msg = 2;</code>
+       */
+      public com.rxf113.MsgProtos.Msg.Builder getMsgBuilder() {
+        return getMsgFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.Msg msg = 2;</code>
+       */
+      public com.rxf113.MsgProtos.MsgOrBuilder getMsgOrBuilder() {
+        if ((packageCase_ == 2) && (msgBuilder_ != null)) {
+          return msgBuilder_.getMessageOrBuilder();
+        } else {
+          if (packageCase_ == 2) {
+            return (com.rxf113.MsgProtos.Msg) package_;
+          }
+          return com.rxf113.MsgProtos.Msg.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.Msg msg = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.rxf113.MsgProtos.Msg, com.rxf113.MsgProtos.Msg.Builder, com.rxf113.MsgProtos.MsgOrBuilder> 
+          getMsgFieldBuilder() {
+        if (msgBuilder_ == null) {
+          if (!(packageCase_ == 2)) {
+            package_ = com.rxf113.MsgProtos.Msg.getDefaultInstance();
+          }
+          msgBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.rxf113.MsgProtos.Msg, com.rxf113.MsgProtos.Msg.Builder, com.rxf113.MsgProtos.MsgOrBuilder>(
+                  (com.rxf113.MsgProtos.Msg) package_,
+                  getParentForChildren(),
+                  isClean());
+          package_ = null;
+        }
+        packageCase_ = 2;
+        onChanged();;
+        return msgBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.rxf113.MsgProtos.HeartMessage, com.rxf113.MsgProtos.HeartMessage.Builder, com.rxf113.MsgProtos.HeartMessageOrBuilder> heartMsgBuilder_;
+      /**
+       * <code>.HeartMessage heartMsg = 3;</code>
+       */
+      public boolean hasHeartMsg() {
+        return packageCase_ == 3;
+      }
+      /**
+       * <code>.HeartMessage heartMsg = 3;</code>
+       */
+      public com.rxf113.MsgProtos.HeartMessage getHeartMsg() {
+        if (heartMsgBuilder_ == null) {
+          if (packageCase_ == 3) {
+            return (com.rxf113.MsgProtos.HeartMessage) package_;
+          }
+          return com.rxf113.MsgProtos.HeartMessage.getDefaultInstance();
+        } else {
+          if (packageCase_ == 3) {
+            return heartMsgBuilder_.getMessage();
+          }
+          return com.rxf113.MsgProtos.HeartMessage.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.HeartMessage heartMsg = 3;</code>
+       */
+      public Builder setHeartMsg(com.rxf113.MsgProtos.HeartMessage value) {
+        if (heartMsgBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          package_ = value;
+          onChanged();
+        } else {
+          heartMsgBuilder_.setMessage(value);
+        }
+        packageCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.HeartMessage heartMsg = 3;</code>
+       */
+      public Builder setHeartMsg(
+          com.rxf113.MsgProtos.HeartMessage.Builder builderForValue) {
+        if (heartMsgBuilder_ == null) {
+          package_ = builderForValue.build();
+          onChanged();
+        } else {
+          heartMsgBuilder_.setMessage(builderForValue.build());
+        }
+        packageCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.HeartMessage heartMsg = 3;</code>
+       */
+      public Builder mergeHeartMsg(com.rxf113.MsgProtos.HeartMessage value) {
+        if (heartMsgBuilder_ == null) {
+          if (packageCase_ == 3 &&
+              package_ != com.rxf113.MsgProtos.HeartMessage.getDefaultInstance()) {
+            package_ = com.rxf113.MsgProtos.HeartMessage.newBuilder((com.rxf113.MsgProtos.HeartMessage) package_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            package_ = value;
+          }
+          onChanged();
+        } else {
+          if (packageCase_ == 3) {
+            heartMsgBuilder_.mergeFrom(value);
+          }
+          heartMsgBuilder_.setMessage(value);
+        }
+        packageCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.HeartMessage heartMsg = 3;</code>
+       */
+      public Builder clearHeartMsg() {
+        if (heartMsgBuilder_ == null) {
+          if (packageCase_ == 3) {
+            packageCase_ = 0;
+            package_ = null;
+            onChanged();
+          }
+        } else {
+          if (packageCase_ == 3) {
+            packageCase_ = 0;
+            package_ = null;
+          }
+          heartMsgBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.HeartMessage heartMsg = 3;</code>
+       */
+      public com.rxf113.MsgProtos.HeartMessage.Builder getHeartMsgBuilder() {
+        return getHeartMsgFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.HeartMessage heartMsg = 3;</code>
+       */
+      public com.rxf113.MsgProtos.HeartMessageOrBuilder getHeartMsgOrBuilder() {
+        if ((packageCase_ == 3) && (heartMsgBuilder_ != null)) {
+          return heartMsgBuilder_.getMessageOrBuilder();
+        } else {
+          if (packageCase_ == 3) {
+            return (com.rxf113.MsgProtos.HeartMessage) package_;
+          }
+          return com.rxf113.MsgProtos.HeartMessage.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.HeartMessage heartMsg = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.rxf113.MsgProtos.HeartMessage, com.rxf113.MsgProtos.HeartMessage.Builder, com.rxf113.MsgProtos.HeartMessageOrBuilder> 
+          getHeartMsgFieldBuilder() {
+        if (heartMsgBuilder_ == null) {
+          if (!(packageCase_ == 3)) {
+            package_ = com.rxf113.MsgProtos.HeartMessage.getDefaultInstance();
+          }
+          heartMsgBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.rxf113.MsgProtos.HeartMessage, com.rxf113.MsgProtos.HeartMessage.Builder, com.rxf113.MsgProtos.HeartMessageOrBuilder>(
+                  (com.rxf113.MsgProtos.HeartMessage) package_,
+                  getParentForChildren(),
+                  isClean());
+          package_ = null;
+        }
+        packageCase_ = 3;
+        onChanged();;
+        return heartMsgBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:DataPackage)
+    }
+
+    // @@protoc_insertion_point(class_scope:DataPackage)
+    private static final com.rxf113.MsgProtos.DataPackage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.rxf113.MsgProtos.DataPackage();
+    }
+
+    public static com.rxf113.MsgProtos.DataPackage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DataPackage>
+        PARSER = new com.google.protobuf.AbstractParser<DataPackage>() {
+      @java.lang.Override
+      public DataPackage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DataPackage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DataPackage> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DataPackage> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.rxf113.MsgProtos.DataPackage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface MsgOrBuilder extends
       // @@protoc_insertion_point(interface_extends:Msg)
       com.google.protobuf.MessageOrBuilder {
@@ -764,11 +1873,528 @@ public final class MsgProtos {
 
   }
 
+  public interface HeartMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:HeartMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * ID
+     * </pre>
+     *
+     * <code>int64 userID = 1;</code>
+     */
+    long getUserID();
+  }
+  /**
+   * <pre>
+   **
+   *心跳
+   * </pre>
+   *
+   * Protobuf type {@code HeartMessage}
+   */
+  public  static final class HeartMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:HeartMessage)
+      HeartMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use HeartMessage.newBuilder() to construct.
+    private HeartMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private HeartMessage() {
+      userID_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private HeartMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              userID_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.rxf113.MsgProtos.internal_static_HeartMessage_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.rxf113.MsgProtos.internal_static_HeartMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.rxf113.MsgProtos.HeartMessage.class, com.rxf113.MsgProtos.HeartMessage.Builder.class);
+    }
+
+    public static final int USERID_FIELD_NUMBER = 1;
+    private long userID_;
+    /**
+     * <pre>
+     * ID
+     * </pre>
+     *
+     * <code>int64 userID = 1;</code>
+     */
+    public long getUserID() {
+      return userID_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (userID_ != 0L) {
+        output.writeInt64(1, userID_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (userID_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, userID_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.rxf113.MsgProtos.HeartMessage)) {
+        return super.equals(obj);
+      }
+      com.rxf113.MsgProtos.HeartMessage other = (com.rxf113.MsgProtos.HeartMessage) obj;
+
+      boolean result = true;
+      result = result && (getUserID()
+          == other.getUserID());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + USERID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getUserID());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.rxf113.MsgProtos.HeartMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.rxf113.MsgProtos.HeartMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.rxf113.MsgProtos.HeartMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.rxf113.MsgProtos.HeartMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.rxf113.MsgProtos.HeartMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.rxf113.MsgProtos.HeartMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.rxf113.MsgProtos.HeartMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.rxf113.MsgProtos.HeartMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.rxf113.MsgProtos.HeartMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.rxf113.MsgProtos.HeartMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.rxf113.MsgProtos.HeartMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.rxf113.MsgProtos.HeartMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.rxf113.MsgProtos.HeartMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     **
+     *心跳
+     * </pre>
+     *
+     * Protobuf type {@code HeartMessage}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:HeartMessage)
+        com.rxf113.MsgProtos.HeartMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.rxf113.MsgProtos.internal_static_HeartMessage_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.rxf113.MsgProtos.internal_static_HeartMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.rxf113.MsgProtos.HeartMessage.class, com.rxf113.MsgProtos.HeartMessage.Builder.class);
+      }
+
+      // Construct using com.rxf113.MsgProtos.HeartMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        userID_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.rxf113.MsgProtos.internal_static_HeartMessage_descriptor;
+      }
+
+      @java.lang.Override
+      public com.rxf113.MsgProtos.HeartMessage getDefaultInstanceForType() {
+        return com.rxf113.MsgProtos.HeartMessage.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.rxf113.MsgProtos.HeartMessage build() {
+        com.rxf113.MsgProtos.HeartMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.rxf113.MsgProtos.HeartMessage buildPartial() {
+        com.rxf113.MsgProtos.HeartMessage result = new com.rxf113.MsgProtos.HeartMessage(this);
+        result.userID_ = userID_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.rxf113.MsgProtos.HeartMessage) {
+          return mergeFrom((com.rxf113.MsgProtos.HeartMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.rxf113.MsgProtos.HeartMessage other) {
+        if (other == com.rxf113.MsgProtos.HeartMessage.getDefaultInstance()) return this;
+        if (other.getUserID() != 0L) {
+          setUserID(other.getUserID());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.rxf113.MsgProtos.HeartMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.rxf113.MsgProtos.HeartMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long userID_ ;
+      /**
+       * <pre>
+       * ID
+       * </pre>
+       *
+       * <code>int64 userID = 1;</code>
+       */
+      public long getUserID() {
+        return userID_;
+      }
+      /**
+       * <pre>
+       * ID
+       * </pre>
+       *
+       * <code>int64 userID = 1;</code>
+       */
+      public Builder setUserID(long value) {
+        
+        userID_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * ID
+       * </pre>
+       *
+       * <code>int64 userID = 1;</code>
+       */
+      public Builder clearUserID() {
+        
+        userID_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:HeartMessage)
+    }
+
+    // @@protoc_insertion_point(class_scope:HeartMessage)
+    private static final com.rxf113.MsgProtos.HeartMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.rxf113.MsgProtos.HeartMessage();
+    }
+
+    public static com.rxf113.MsgProtos.HeartMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<HeartMessage>
+        PARSER = new com.google.protobuf.AbstractParser<HeartMessage>() {
+      @java.lang.Override
+      public HeartMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new HeartMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<HeartMessage> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<HeartMessage> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.rxf113.MsgProtos.HeartMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DataPackage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DataPackage_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Msg_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Msg_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_HeartMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_HeartMessage_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -778,9 +2404,14 @@ public final class MsgProtos {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\tMsg.proto\"2\n\003Msg\022\014\n\004time\030\001 \001(\t\022\014\n\004type" +
-      "\030\003 \001(\r\022\017\n\007content\030\002 \001(\tB\027\n\ncom.rxf113B\tM" +
-      "sgProtosb\006proto3"
+      "\n\tMsg.proto\"s\n\013DataPackage\022!\n\013packageTyp" +
+      "e\030\001 \001(\0162\014.PackageType\022\023\n\003msg\030\002 \001(\0132\004.Msg" +
+      "H\000\022!\n\010heartMsg\030\003 \001(\0132\r.HeartMessageH\000B\t\n" +
+      "\007Package\"2\n\003Msg\022\014\n\004time\030\001 \001(\t\022\014\n\004type\030\003 " +
+      "\001(\r\022\017\n\007content\030\002 \001(\t\"\036\n\014HeartMessage\022\016\n\006" +
+      "userID\030\001 \001(\003*(\n\013PackageType\022\007\n\003MSG\020\000\022\020\n\014" +
+      "HEARTMESSAGE\020\001B\027\n\ncom.rxf113B\tMsgProtosb" +
+      "\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -794,12 +2425,24 @@ public final class MsgProtos {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_Msg_descriptor =
+    internal_static_DataPackage_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_DataPackage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DataPackage_descriptor,
+        new java.lang.String[] { "PackageType", "Msg", "HeartMsg", "Package", });
+    internal_static_Msg_descriptor =
+      getDescriptor().getMessageTypes().get(1);
     internal_static_Msg_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Msg_descriptor,
         new java.lang.String[] { "Time", "Type", "Content", });
+    internal_static_HeartMessage_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_HeartMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_HeartMessage_descriptor,
+        new java.lang.String[] { "UserID", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

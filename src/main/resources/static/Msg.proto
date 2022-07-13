@@ -2,8 +2,33 @@ syntax = "proto3";
 
 package protoMsg;
 
+message DataPackage{
+     PackageType packageType = 1;
+     oneof Package{
+          Msg msg = 2;
+          HeartMessage heartMsg = 3;
+
+     }
+}
+enum PackageType{
+     MSG = 0;
+     HEARTMESSAGE = 1;
+
+
+}
+
 message Msg {
      string time = 1;
      uint32 type = 3;
      string content = 2;
+}
+
+/**
+心跳
+ */
+message HeartMessage {
+
+     // ID
+     int64 userID = 1;
+
 }

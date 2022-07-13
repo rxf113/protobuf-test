@@ -43,7 +43,7 @@ public class CustomChannelInitializer extends ChannelInitializer<SocketChannel> 
             }
         });
 
-        socketChannel.pipeline().addLast(new ProtobufDecoder(MsgProtos.Msg.getDefaultInstance()));
+        socketChannel.pipeline().addLast(new ProtobufDecoder(MsgProtos.DataPackage.getDefaultInstance()));
         //自定义入站处理
         socketChannel.pipeline().addLast(new TestProtoBufInboundHandler());
 
@@ -51,7 +51,7 @@ public class CustomChannelInitializer extends ChannelInitializer<SocketChannel> 
         socketChannel.pipeline().addLast(new ProtobufEncoder() {
             @Override
             protected void encode(ChannelHandlerContext ctx, MessageLiteOrBuilder msg, List<Object> out) throws Exception {
-                MsgProtos.Msg mpMsg = (MsgProtos.Msg) msg;
+                MsgProtos.DataPackage mpMsg = (MsgProtos.DataPackage) msg;
                 WebSocketFrame frame = new BinaryWebSocketFrame(Unpooled.wrappedBuffer(mpMsg.toByteArray()));
                 out.add(frame);
             }
